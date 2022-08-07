@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\QiitaApiController;
+use App\Http\Controllers\ZennApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,4 @@ require __DIR__.'/auth.php';
 
 Route::get('/articles', [ArticleController::class, 'index']);
 Route::get('/qiitas', [QiitaApiController::class, 'index']);
+Route::get('/zenns', [ZennApiController::class, 'index']);

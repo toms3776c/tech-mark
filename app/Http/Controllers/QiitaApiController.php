@@ -2,29 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use App\Services\QiitaApiService;
 
 class QiitaApiController extends Controller
 {
-    public function index()
+    private $qiita_api;
+    public function __construct(QiitaApiService $qiita_api_service)
     {
-        $decode_res = $this->getQiitaItems();
-        // dd($decode_res);
-        return view('qiita.index', compact('decode_res'));
+        $this->qiita_api = $qiita_api_service;
     }
 
-    private function getQiitaItems()
+    public function index()
     {
-        $client = new Client();
-        $token = config('qiita.auth_id');
-        $result = $client->request('GET', 'https://qiita.com/api/v2/items?page=1&per_page=10', [
-            'headers' => [
-                'Authorization' => 'Bearer '.$token,
-                'Accept' => 'application/json',
-            ],
-        ]);
-        $response_body = (string) $result->getBody();
-        return json_decode($response_body);
+        $decode_res = $this->qiita_api->getItems();
+        // dd($decode_res);
+        return view('qiita.index', compact('decode_res'));
     }
 }
