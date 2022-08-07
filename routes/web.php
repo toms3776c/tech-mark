@@ -16,9 +16,9 @@ use App\Http\Controllers\ZennApiController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -26,6 +26,6 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/articles', [ArticleController::class, 'index']);
+Route::get('/', [ArticleController::class, 'index']);
 Route::get('/qiitas', [QiitaApiController::class, 'index']);
 Route::get('/zenns', [ZennApiController::class, 'index']);

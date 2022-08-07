@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Articles</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+<body class="font-Notosans">
+    <div class="container mx-auto bg-base-200 flex-column h-100">
+        <header>
+            <x-header></x-header>
+        </header>
+        <main class="flex-1">
+            <h1 class="text-3xl font-bold text-blue-600 text-center m-4">最新記事</h1>
+            <h2 class="text-3xl font-bold text-blue-600 text-center m-4">Qiita</h2>
+            {{$qiita}}
+            <h2 class="text-3xl font-bold text-blue-600 text-center m-4">Zenn</h2>
+            {{$zenn}}
+        </main>
+    </div>
+</body>
+</html>
